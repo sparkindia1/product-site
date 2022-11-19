@@ -8,8 +8,9 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
+      <title>Spark India</title>
+      <link rel="icon" href="../public/sparklogo.png" />
       <body>
-        {/* 👇 Here's the script */}
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Main />
         <NextScript />

@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Image,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -53,15 +54,19 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            Logo
-          </Text>
-
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
+            <Box
+              as="a"
+              href="/"
+              rel="noopener noreferrer"
+              _hover={{ textDecoration: "none" }}
+              display="flex"
+              alignItems="center"
+              w={["100px", "150px"]}
+              mr={8}
+            >
+              <Image src="/images/sparklogo.png" alt="logo" />
+            </Box>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -86,7 +91,7 @@ export default function Navbar() {
             fontSize={"sm"}
             fontWeight={600}
             color={"white"}
-            bg={"pink.400"}
+            bg={"#FF4C56"}
             _hover={{
               bg: "pink.300",
             }}
@@ -265,7 +270,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Inspiration",
+    label: "Home",
     children: [
       {
         label: "Explore Design Work",
@@ -280,7 +285,7 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: "Find Work",
+    label: "Services",
     children: [
       {
         label: "Job Board",
@@ -295,11 +300,11 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: "Learn Design",
+    label: "About Us",
     href: "#",
   },
   {
-    label: "Hire Designers",
+    label: "Marketplace",
     href: "#",
   },
 ];

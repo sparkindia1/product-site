@@ -12,8 +12,8 @@ import {
   Text,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { Logo } from "./logo";
 export const links = [
   {
     title: "Company",
@@ -117,7 +117,10 @@ export const Footer = () => (
           width={{ base: "full", sm: "auto" }}
           spacing="8"
         >
-          <Logo />
+          <Image src="/images/sparklogo.png" alt="Envelope"
+            width={200}
+            height={100}
+          />
           <ButtonGroup variant="ghost">
             <IconButton
               as="a"
@@ -140,7 +143,7 @@ export const Footer = () => (
           </ButtonGroup>
         </HStack>
         <Text fontSize="sm" color="subtle">
-          &copy; {new Date().getFullYear()} Chakra UI Pro, Inc. All rights
+          &copy; {new Date().getFullYear()} Spark India, Inc. All rights
           reserved.
         </Text>
       </Stack>

@@ -1,11 +1,14 @@
 import {
   Box,
+  Button,
   Divider,
   Heading,
   Icon,
+  SimpleGrid,
   Text,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import React from "react";
 import {
   BsBook,
@@ -22,169 +25,147 @@ export const StepperBanner = () => {
       id: 1,
       title: "Create Account",
       description: "Add your name and phone number to get started",
+      image: "createacccount.png",
     },
     {
       id: 2,
       title: "Add Business",
       description:
         "Add name, address & e-mail of your company, store/ business",
+      image: "addbusi.png",
     },
     {
       id: 3,
       title: "Add Products",
       description: "Minimum 3 products needed for your E-Shop",
+      image: "addprod.png",
+    },
+    {
+      id: 4,
+      title: "logo",
+      description: "logo",
+      image: "sparklogo.png",
     },
   ];
   return (
-    <Box minH={{ base: "auto", md: "50vh" }}>
-      <Box
-        display={"flex"}
-        flexDirection={{ base: "column", md: "row" }}
-        alignItems={"center"}
-        justifyContent={"center"}
-        mt="4"
+    <Box
+      bg={mode("gray.50", "gray.800")}
+      mx={{ base: 4, md: 8 }}
+      py="12"
+      px={{
+        base: "4",
+        md: "8",
+      }}
+    >
+      <Heading
+        as="h3"
+        size={{
+          base: "xl",
+          md: "2xl",
+        }}
+        fontWeight="extrabold"
+        textAlign="center"
+        textDecoration="underline"
+        textDecorationColor="#FF4C56"
       >
-        <Heading
-          as="h2"
-          size="xl"
-          mt={{ base: "8", md: "8" }}
-          fontWeight="extrabold"
-          color={mode("#FF4C56", "#FF4C56")}
-          textDecoration="underline"
-          textDecorationColor={mode("blue.600", "blue.200")}
-        >
-          Get ready to sell in just 3 simple steps
-        </Heading>
-      </Box>
-      <Box
-        display={"flex"}
-        flexDirection={{ base: "column", md: "row" }}
-        alignItems={"center"}
-        justifyContent={"center"}
-        mt="4"
-        maxW={{ base: "full", md: "7xl" }}
-        mx="auto"
-        py={{ base: "4", md: "8" }}
-      >
-        <Box
-          display={"flex"}
-          flexDirection={"column"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          mt="4"
-        >
-          <Box
-            display={"flex"}
-            flexDirection={{ base: "column", md: "row" }}
-            borderRadius="100%"
-            bg={mode("green.500", "green.800")}
-            alignItems={"center"}
-            p="6"
-          >
-            <Icon
-              color={"white"}
-              as={BsMenuButton}
-              boxSize={{ base: "12", md: "16" }}
-            />
-          </Box>
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            mt="4"
-            textAlign={"center"}
-          >
-            <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="medium">
-              {StepBoxData[0].title}
-            </Text>
-            <Text color="muted">{StepBoxData[0].description}</Text>
-          </Box>
-        </Box>
-
-        <Divider
-          mt={"-32"}
-          orientation="horizontal"
-          border={mode("4px", "4px")}
-          borderColor={mode("#FF4C56", "#FF4C56")}
-          mr="4"
-          ml="4"
-        />
-        <Box
-          display={"flex"}
-          flexDirection={{ base: "column", md: "column" }}
-          alignItems={"center"}
-          justifyContent={"center"}
-          mt="4"
-        >
-          <Box
-            display={"flex"}
-            flexDirection={{ base: "column", md: "column" }}
-            borderRadius="100%"
-            bg={mode("green.500", "green.800")}
-            alignItems={"center"}
-            p="6"
-          >
-            <Icon
-              color={"white"}
-              as={BsPerson}
-              boxSize={{ base: "12", md: "16" }}
-            />
-          </Box>
-          <Box
-            display={"flex"}
-            flexDirection={{ base: "column", md: "column" }}
-            alignItems={"center"}
-            justifyContent={"center"}
-            mt="4"
-            textAlign={"center"}
-          >
-            <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="medium">
-              {StepBoxData[1].title}
-            </Text>
-            <Text color="muted">{StepBoxData[1].description}</Text>
-          </Box>
-        </Box>
-        <Divider
-          mt={"-32"}
-          orientation="horizontal"
-          border={mode("4px", "4px")}
-          borderColor={mode("#FF4C56", "#FF4C56")}
-          ml="4"
-          mr="4"
-        />
-        <Box
-          display={"flex"}
-          flexDirection={{ base: "column", md: "column" }}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          <Box
-            display={"flex"}
-            flexDirection={{ base: "column", md: "row" }}
-            borderRadius="100%"
-            bg={mode("green.500", "green.800")}
-            alignItems={"center"}
-            p="6"
-            mt={4}
-          >
-            <Icon
-              color={"white"}
-              as={BsShop}
-              boxSize={{ base: "12", md: "16" }}
-            />
-          </Box>
-          <Box
-            display={"flex"}
-            flexDirection={{ base: "column", md: "column" }}
-            textAlign={"center"}
-            mt="4"
-          >
-            <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="medium">
-              {StepBoxData[2].title}
-            </Text>
-            <Text color="muted">{StepBoxData[2].description}</Text>
-          </Box>
-        </Box>
-      </Box>
+        Register in 3 simple steps
+      </Heading>
+      <SimpleGrid columns={{ base: 1, md: 4 }} spacing="10" mt="10">
+        {StepBoxData.map((item) => (
+          <>
+            {item.title === "logo" ? (
+              <Box p={4} boxShadow={"lg"} bg={mode("white", "gray.700")}>
+                <Box
+                  display={"flex"}
+                  flexDirection={"column"}
+                  justifyContent="center"
+                >
+                  <Text
+                    fontSize={"2xl"}
+                    fontWeight={"bold"}
+                    color={"#FF4C56"}
+                    mr={2}
+                  >
+                    {item.id}
+                  </Text>
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    verticalAlign="middle"
+                    my={16}
+                    p={4}
+                  >
+                    <Image
+                      src={`/images/${item.image}`}
+                      alt="logo"
+                      width={400}
+                      height={200}
+                    />
+                    <Button
+                      mt="4"
+                      disabled
+                      colorScheme="red"
+                      size="sm"
+                      variant="solid"
+                      color="white"
+                      _hover={{
+                        bg: "#FF4C56",
+                      }}
+                    >
+                      Register
+                    </Button>
+                  </Box>
+                </Box>
+              </Box>
+            ) : (
+              <Box p={4} boxShadow={"lg"} bg={mode("white", "gray.700")}>
+                <Box
+                  display={"flex"}
+                  flexDirection={"column"}
+                  justifyContent="center"
+                >
+                  <Text
+                    fontSize={"2xl"}
+                    fontWeight={"bold"}
+                    color={"#FF4C56"}
+                    mr={2}
+                  >
+                    {item.id}
+                  </Text>
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    mb={4}
+                    verticalAlign="middle"
+                  >
+                    <Image
+                      src={`/images/${item.image}`}
+                      alt="logo"
+                      width={200}
+                      height={200}
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  display={"flex"}
+                  flexDirection={"column"}
+                  alignItems={"center"}
+                  mt="4"
+                >
+                  <Text fontSize={"xl"} fontWeight={"bold"}>
+                    {item.title}
+                  </Text>
+                  <Text>{item.description}</Text>
+                </Box>
+              </Box>
+            )}
+          </>
+        ))}
+      </SimpleGrid>
     </Box>
   );
 };
